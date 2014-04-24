@@ -38,7 +38,7 @@ function! s:move(str, x)
 	return repeat(" ", a:x).a:str
 endfunction
 
-function! g:homo()
+function! HomoStatuslineFunc()
 	return s:resize(s:move(s:homo, s:count), winwidth("%"))
 endfunction
 
@@ -49,7 +49,7 @@ function! s:setup()
 	nnoremap <silent> l :call <SID>go()<CR>l
 	nnoremap <silent> k :call <SID>back()<CR>k
 	nnoremap <silent> h :call <SID>back()<CR>h
-	set statusline=%{g:homo()}
+	set statusline=%{HomoStatuslineFunc()}
 endfunction
 
 command! -nargs=0 HomoStatusline :call <SID>setup()
